@@ -1,0 +1,58 @@
+//crear usuario
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Profesor",
+    "email": "profesor@gmail.com",
+    "password": "profesorpassword",
+    "confPassword": "profesorpassword",
+    "role": "profesor"
+}
+
+### 
+// obtener todos los usuarios
+GET http://localhost:5000/users
+
+###
+// obtener un solo usuario
+GET http://localhost:5000/users/7da6e099-14b9-451b-9ab1-c7a30c1332b9
+
+
+### 
+// actualizar usuario
+PATCH http://localhost:5000/users/uuid
+Content-Type: application/json
+
+{
+    "name": "Administrador",
+    "email": "admin@gmail.com",
+    "password": "adminuser",
+    "confPassword": "adminuser",
+    "role": "admin"
+}
+
+
+###
+// eliminar usuario
+
+DELETE http://localhost:5000/users/1d4d1a8e-a5e0-4251-a45c-dbe36c268734
+ 
+
+###
+// iniciar sesion
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "estudiante@gmail.com",
+    "password": "estudiantepassword"
+}
+
+### ver sesion
+GET http://localhost:5000/me
+
+### cerrar sesion
+DELETE http://localhost:5000/logout
