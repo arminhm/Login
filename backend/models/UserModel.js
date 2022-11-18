@@ -4,20 +4,27 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const Users = db.define('users',{
-    uuid:{
+    id:{
         type: DataTypes.STRING,
-        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
         allowNull: false,
         validate:{
             notEmpty: true
             // no nullo / no vacio
         }
     },
+    role:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate:{
+            notEmpty: true
+        }
+    },
     name:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            notEmpty: true,
+            notEmpty: false,
             len: [3, 100]
             // 3 - 100 caracteres
         }      
@@ -30,20 +37,18 @@ const Users = db.define('users',{
             isEmail: true
         }      
        },
+    telefono:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+
+    },
     password:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }      
-       },   
-    role:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }      
-       },   
+       },       
 },{
     freezeTableName: true
 });

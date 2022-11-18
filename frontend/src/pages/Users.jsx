@@ -1,6 +1,5 @@
 import React , { useEffect } from 'react';
 import Layout from './Layout';
-import Userlist from '../components/Userlist';
 import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import {getMe} from "../features/authSlice";
@@ -22,13 +21,13 @@ const Users = () => {
     if(isError){
       navigate("/")
     } 
-    if(user && user.role !== "admin"){
+    if(user && user.role !== 1){
       navigate("/dashboard");
     }
   },[isError, user , navigate]);
   return (
     <Layout>
-        <Userlist/>
+        
     </Layout>
     )
 }

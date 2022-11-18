@@ -1,16 +1,15 @@
 //crear usuario
-
 POST http://localhost:5000/users
 Content-Type: application/json
-
 {
-    "name": "Profesor",
-    "email": "profesor@gmail.com",
-    "password": "profesorpassword",
-    "confPassword": "profesorpassword",
-    "role": "profesor"
+    "id": "20700200",
+    "name": "Estudiante",
+    "email": "estudiante@ucm.cl",
+    "password": "estudiantepassword",
+    "confPassword": "estudiantepassword",
+    "role": "5",
+    "telefono": "1015"
 }
-
 ### 
 // obtener todos los usuarios
 GET http://localhost:5000/users
@@ -22,15 +21,16 @@ GET http://localhost:5000/users/7da6e099-14b9-451b-9ab1-c7a30c1332b9
 
 ### 
 // actualizar usuario
-PATCH http://localhost:5000/users/uuid
+PATCH http://localhost:5000/users/7da6e099-14b9-451b-9ab1-c7a30c1332b9
 Content-Type: application/json
 
 {
-    "name": "Administrador",
-    "email": "admin@gmail.com",
-    "password": "adminuser",
-    "confPassword": "adminuser",
-    "role": "admin"
+    "name": "Jefe de Carrera",
+    "rut" : "16700200",
+    "email": "jefecarrera@gmail.com",
+    "password": "jefecarrera",
+    "confPassword": "jefecarrera",
+    "role": "2"
 }
 
 
@@ -47,8 +47,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "estudiante@gmail.com",
-    "password": "estudiantepassword"
+    "id": "18700400",
+    "password": "profesorpassword"
 }
 
 ### ver sesion

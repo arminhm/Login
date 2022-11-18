@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+// estado inicial 
 const initialState = {
     user: null,
     isError: false,
@@ -12,7 +12,7 @@ const initialState = {
 export const LoginUser = createAsyncThunk("user/LoginUser", async(user, thunkAPI) => {
     try {
         const response = await axios.post('http://localhost:5000/login', {
-            email: user.email,
+            id: user.id,
             password: user.password
         });
         return response.data;
@@ -45,7 +45,7 @@ export const authSlice = createSlice({
             state.isError = true;
             state.message = action.payload;
         })
-        // obtener inicio de sesion
+        // definir 3 posibles tados de iniciado sesion , pending/gulfilled/rejectd
         builder.addCase(getMe.pending, (state) =>{
             state.isLoading = true;
         });
@@ -61,7 +61,7 @@ export const authSlice = createSlice({
         })
     }
 });
-
+ // funcion para obtener si  esta logeado
 export const getMe = createAsyncThunk("user/getMe", async(_, thunkAPI) => {
     try {
         const response = await axios.get('http://localhost:5000/me');
@@ -73,7 +73,7 @@ export const getMe = createAsyncThunk("user/getMe", async(_, thunkAPI) => {
         }
     }
 });
-
+ // funcin para deslogearse
 
 export const LogOut = createAsyncThunk("user/LogOut", async() => {
         await axios.delete('http://localhost:5000/logout');

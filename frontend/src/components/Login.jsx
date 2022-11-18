@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
+// hook useState  (guardar estado de componentes), useEffect (desencadena acciones dependiendo de cambios de estados)
 import { useDispatch, useSelector } from "react-redux";
+// useDispatch consume la funcion creada 
+// leer estado 
 import { useNavigate } from "react-router-dom";
+// navegar entre rutas
 import { LoginUser, reset } from "../features/authSlice";
+// funciones importadas de authSlice
+import '../style.css';
+
+
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,32 +29,33 @@ const Login = () => {
 
   const Auth = (e) => {
     e.preventDefault();
-    dispatch(LoginUser({ email, password }));
+    //  preventDefault para que la pagina no recargue cuando envia datos del formulario 
+    dispatch(LoginUser({ id, password }));
   };
 
   return (
-    <section className="hero is-fullheight is-fullwidth">
+    <section className="hero is-fullheight is-fullwidth ">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-4">
               <form onSubmit={Auth} className="box">
                 {isError && <p className="has-text-centered">{message}</p>}
-                <h1 className="title is-2">Sign In</h1>
+                <h1 className="title is-2">Inicio de Sesion</h1>
                 <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control">
+                  <label className="label">Rut</label>
+                  <div className="control"> 
                     <input
                       type="text"
                       className="input"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Email"
+                      value={id}
+                      onChange={(e) => setId(e.target.value)}
+                      placeholder="Rut"
                     />
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label">Password</label>
+                  <label className="label">Contraseña</label>
                   <div className="control">
                     <input
                       type="password"

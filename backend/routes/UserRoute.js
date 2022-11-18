@@ -13,6 +13,7 @@ const router = express.Router();
 // get : sacar recursos del back , post : guardar/crear recursos del back , put : modificar todo el recurso
 // delete : elimina recrusos del back  , patch : modificar parte del recurso
 
+// agrega restricciones al uso de metodos de peticion , creacion  , actualizacion y eliminacion de usuarios
 router.get('/users', verifyUser,adminOnly, getUsers);
 router.get('/users/:id',verifyUser,adminOnly, getUserId);
 router.post('/users', verifyUser,adminOnly, createUser);
