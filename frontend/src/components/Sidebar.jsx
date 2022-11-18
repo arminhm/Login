@@ -22,7 +22,7 @@ const Sidebar = () => {
   return (
     <div>
         <aside className="menu pl-2 has-shadow">
-  {/* condicional de estudiante y inicio de sesion */}
+  {/* aaaaaa condicional de estudiante y inicio de sesion */}
   {user && user.role === 5 && (
     <div>
 
