@@ -24,6 +24,9 @@ const Login = () => {
     if (user && isSuccess && user.role === 5) {
       navigate("/estudiante");
     }
+    if (user && isSuccess && user.role === 2) {
+      navigate("/jefecarrera");
+    }
     dispatch(reset());
   }, [user, isSuccess, dispatch, navigate]);
 

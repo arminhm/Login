@@ -26,7 +26,7 @@ const Estudiante = () => {
 
   return (
     <div>
-      <h1 className='enproceso'> Vista en proceso </h1>
+      <h1 className='enproceso'> Vista en proceso del estudiannte </h1>
       <NavLink to="/dashboard"> Volver </NavLink>
 
 
