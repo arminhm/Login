@@ -3,13 +3,14 @@ import User from "../models/UserModel.js";
 import argon2 from "argon2";
 
 export const Login = async(req, res) => {
+    
     const user = await User.findOne({
         where: {
             id: req.body.id
         }
     });
     if(!user) return res.status(404).json({msg: "Rut inexistente"});
-    // compara la variable password ingresada enscriptada con argon2
+
     const match = await argon2.verify(user.password, req.body.password);
     if(!match) return res.status(400).json({msg:"Contrasenia incorrecta"});
     req.session.userId = user.id;
