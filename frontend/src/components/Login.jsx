@@ -21,8 +21,8 @@ const Login = () => {
   );
 
   useEffect(() => {
-    if (user || isSuccess) {
-      navigate("/dashboard");
+    if (user && isSuccess && user.role === 5) {
+      navigate("/estudiante");
     }
     dispatch(reset());
   }, [user, isSuccess, dispatch, navigate]);
